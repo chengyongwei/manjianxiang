@@ -38,6 +38,7 @@ body{
 .reg-main-con .reg-mian-con-div{
 	margin-top:20px;padding-bottom:20px;position:relative;
 }
+.reg-mian-con-div label{text-shadow:1px 1px 2px #555;}
 .reg-main-con span{font-size:15px;color:#666;text-indent:1em;}
 .reg-main-con .inp{width:290px;height:35px;border:none;padding:2px;text-indent:.5em;font-size: 17px;}
 .reg-main-con .inp-v{width:100px;height:30px;}
