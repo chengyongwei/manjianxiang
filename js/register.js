@@ -1,12 +1,12 @@
-$(function(){
+$(function(){//s
+
 	// 验证两次密码是否相同
 	$('input[name="userpass_r"]').on('input.userpass_r',function(){ver_pass()})
 	$('input[name="userpass"]').on('input.userpass',function(){ver_pass()})
 	function ver_pass(){
 		var userp_a = $('input[name="userpass"]').val().trim();
 		var userp_r = $('input[name="userpass_r"]').val().trim();
-	    if(userp_a && userp_r){
-	    	
+	    if(userp_a && userp_r){	    	
 			if(userp_a!=userp_r){
 				$('.reg-cue-2').css({'display':'block'});
 			}else{
@@ -14,6 +14,7 @@ $(function(){
 			}
 	    }
 	}
+	
 	// 验证密码格式是否有效
 	$('input[name="userpass"]').on('blur.userpass',function(){
 		var userpv = $(this).val().trim();
@@ -43,6 +44,7 @@ $(function(){
 			$('.reg-cue-3').css({'display':'block'});
 		}
 	})
+
 	// 有无效内容阻止提交
 	$('form').on('submit.reg',function(event){
 		var cue_1 = $('.reg-cue-1').css('display')=="block";
@@ -52,8 +54,12 @@ $(function(){
 		if(cue_1 || cue_2 || cue_3 ||  cue_3){event.preventDefault();return false;}
 	})
 
-	// $('[type="reset"]').on('click.reset',function(){
-	// 	$('input[type="text"]').val('');
-	// 	$('input[type="password"]').val('');
-	// })	
-})
+	//验证刷新图片请求
+	$('.reg-main-ref').on('click.regRef',function(){
+		$.get('##',{reg_ref:'1'},function(res_data){
+			$('.inp-v-p').html();
+		})
+	})
+
+
+})//e
