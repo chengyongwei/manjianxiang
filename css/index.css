@@ -1,0 +1,10 @@
+@charset "utf-8";
+* {margin:0; padding:0;}
+a{color:#555; text-decoration:none;}
+body{color:#555; font-family: Verdana, Arial, sans-serif; font-size: 14px; text-align:center; }
+body div{box-sizing:border-box;}
+ul{list-style-type:none;}
+input {outline:none;}
+input, select {font-size:12px; vertical-align:middle;}
+textarea,input{word-wrap:break-word;word-break:break-all; }
+img{border:0 none;}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>winMove01</title>
+	<!-- <script src="../js/jquery-3.1.1.min.js"></script> -->
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+
+<script>
+$(function(){
+	$('.win-move01-top').on('mousedown.win_move',function(event){
+		var top_o = $('.win-move01-box').offset().top;
+		var left_o = $('.win-move01-box').offset().left;
+		var x_o = event.screenX;
+		var y_o = event.screenY;
+		$(document).on('mousemove.win_move',function(event){
+			var x_n = event.screenX;
+			var y_n = event.screenY;
+			var top_n = top_o+(y_n-y_o)
+			var left_n = left_o+(x_n-x_o)
+			$('.win-move01-box').css({'left':left_n+'px','top':top_n+'px'});
+			console.log(top_n)
+		})
+		$(document).on('mouseup.win_move',function(){
+			$(document).off('mousemove.win_move');
+		})
+	})
+	$('.win-move01-top>span').click(function(){$('.win-move01-box').css('display','none')})
+})
+</script>
+
+<style>
+.win-move01-box{
+	width:300px;height:200px;background:white;
+	position:fixed;bottom:0;right:0;border:solid 2px #ccc;
+}
+.win-move01-top{height:30px;background:#25f;cursor:move;line-height: 30px;text-align:right;}
+.win-move01-content{height:170px;}
+</style>
+</head>
+<body>
+	
+	<div class="win-move01-box">
+		<div class="win-move01-top">
+			<span style="padding-right:2px;font-size:22px;color:white;cursor:pointer;">&times;</span>
+		</div>
+		<div class="win-move01-content"></div>
+	</div>
+
+</body>
+</html>
