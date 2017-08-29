@@ -14,7 +14,7 @@ $(function(){//s
 			}
 	    }
 	}
-	
+
 	// 验证密码格式是否有效
 	$('input[name="userpass"]').on('blur.userpass',function(){
 		var userpv = $(this).val().trim();
@@ -56,10 +56,15 @@ $(function(){//s
 
 	//验证刷新图片请求
 	$('.reg-main-ref').on('click.regRef',function(){
+		reg_verifi_p_res();
+	})
+	function reg_verifi_p_res(){
 		$.get('##',{reg_ref:'1'},function(res_data){
 			$('.inp-v-p').html();
 		})
-	})
+	}
+	reg_verifi_p_res();
+
 
 
 })//e
