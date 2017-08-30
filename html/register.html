@@ -16,13 +16,14 @@
 <body>
 <div class="reg-box">
 	<div class="reg-header">
-		<h1>用户注册</h1>
+		<h1>用 户 注 册</h1>
 	</div>
 	<div class="reg-main">
 		<div class="reg-main-top box-sizing-s">
 			请填写注册信息：标有 <span style="color:red">*</span> 为必填内容
 		</div>
 		<form name="register_form" action="##" method="post">
+			<input type="text" hidden="" value="register">
 			<div class="reg-main-con">
 				<div class="reg-mian-con-div">
 					<label  for="u_name">
@@ -31,6 +32,7 @@
 					</label> 
 					<span class="reg-main-con-cue">注册后不可更改！中英文均可，最长14个字母或7个汉字.</span>
 					<div class="reg-main-r-cue reg-cue-1">用户名已使用！</div>
+					<div class="rig-wro rig-wro-r"></div>
 				</div>
 				<div class="reg-mian-con-div">
 					<label for="u_pass">
@@ -39,6 +41,7 @@
 					</label>
 					<span class="reg-main-con-cue">支持数组与字母，长度6~14个字符.</span>
 					<div class="reg-main-r-cue reg-cue-4">请输入有效密码</div>
+					<div class="rig-wro rig-wro-r"></div>
 				</div>
 				<div class="reg-mian-con-div">
 					<label for="u_passr">
@@ -46,14 +49,16 @@
 						<span style="color:red;vertical-align: middle;text-shadow: none;">*</span>
 					</label> 					
 					<div class="reg-main-r-cue reg-cue-2">两次密码不同！</div>
+					<div class="rig-wro rig-wro-r"></div>
 				</div>
 				<div class="reg-mian-con-div">
 					<label  for="u_phone">
 						手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						机：<input class="inp" id="u_phone" type="text" name="userphone" placeholder="输入手机号码">
+						机：<input class="inp" id="u_phone" type="text" name="userphone" maxlength="11" placeholder="输入手机号码">
 						<span style="color:red;vertical-align: middle;text-shadow: none;">*</span>
 					</label>					
 					<div class="reg-main-r-cue reg-cue-3">请输入有效号码</div>
+					<div class="rig-wro rig-wro-r"></div>
 				</div>
 				<div class="reg-mian-con-div">
 					<label for="u_mail">
@@ -63,11 +68,12 @@
 				</div>
 				<div class="reg-mian-con-div" style="margin-left:-3px">
 					<label for="inp_v">
-						输入验证码：<input class="inp inp-v" id="inp_v" type="text" name="user_v"> 
-					</label>					 
-					<!-- <span  class="inp-v-p"></span> -->
+						输入验证码：<input class="inp inp-v" id="inp_v" type="text" maxlength="5" name="user_v"> 
+					</label> 
 					<span style="color:red;vertical-align:middle;text-shadow: none;">*</span>
-					<div id="reg_v_p" class="inp-v-p"></div>
+					<div id="reg_v_p" class="inp-v-p">
+					</div>
+					<div class="rig-wro rig-wro-ver"></div>
 					<div class="reg-main-r-cue reg-main-r-cue2">
 						<a class="reg-main-ref" href="javascript:;">点击刷新</a>
 					</div>
