@@ -196,8 +196,7 @@ var verimg_data = [],get_verimg_data=[],current_data_i=0;
 		// 		verimg_data.splice(randn,1);
 		// 	}		
 		// 	$('.inp-v-p>img').attr('src','../images/verifi_img/'+get_verimg_data[current_data_i].name);			
-		// });
-	 
+		// });	 
 		verimg_data = datavvv.slice(0);
 		while(verimg_data.length>0){				
 				var randn = Math.floor(Math.random()*verimg_data.length);
@@ -227,13 +226,12 @@ var verimg_data = [],get_verimg_data=[],current_data_i=0;
 	})
 	
 	//重置清除提示符
-	$('input[type="reset"]').click(function()
-		{$('.rig-wro-ver,.rig-wro-r,.reg-vname-waiting').css('display','none');
+	$('input[type="reset"]').click(function(){
+		$('.rig-wro-ver,.rig-wro-r,.reg-vname-waiting').css('display','none');
 		$('.reg-submit-cue').css('visibility','hidden');
 	})
 
 // $(window).on('resize',function(){
-
 // 	console.log(window.innerWidth)
 // })
 
