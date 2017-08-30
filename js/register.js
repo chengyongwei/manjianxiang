@@ -148,7 +148,7 @@ var verimg_data = [],get_verimg_data=[],current_data_i=0;
 	$('.inp-v').on('input.reg_vp',function(){reg_verifi_p('inp')})
 	$('.inp-v').on('blur.reg_vp',function(){reg_verifi_p('blu')})
 	function reg_verifi_p(eee){
-		var regexp = new RegExp('^'+get_verimg_data[current_data_i].data+'$');
+		var regexp = new RegExp('^'+get_verimg_data[current_data_i].data+'$','i');
 		var inp_vpv = $('.inp-v').val().trim();
 		var bo = regexp.test(inp_vpv)
 		if(eee=='inp'){

@@ -4,7 +4,7 @@
 a{color:#555; text-decoration:none;}
 body{color:#fff; font-family:"Microsoft YaHei" ,"Verdana", "Arial", sans-serif; font-size: 14px; text-align:center; }
 ul{list-style-type:none;}
-input {outline:none;}
+input[type="submit"],input[type="reset"] {outline:none;}
 input, select {font-size:12px; vertical-align:middle;}
 textarea,input{word-wrap:break-word;word-break:break-all; }
 img{border:0 none;}
