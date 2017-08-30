@@ -9,66 +9,40 @@
 	<meta name="description" content="">
 	<link rel="shortcut icon" href="../images/02.ico">
 	<link rel="dns-prefetch" href="">
-	<link rel="stylesheet" href="../css/register.css"></link rel="stylesheet">
+	<link rel="stylesheet" href="../css/register.css">
 	<script src="../js/jquery-3.1.1.min.js"></script>
 	<script src="../js/login.js"></script>
 </head>
 <body class="bodyset">
 <div class="reg-box">
 	<div class="reg-header">
-		<h1>欢迎登录</h1>
+		<h1>欢 迎 登 录</h1>
 	</div>
 	<div class="reg-main">
 		<div class="reg-main-top box-sizing-s">
 			欢迎登录满尖香！
 		</div>
 		<form name="login_form" action="##" method="post">
-		<input type="text" hidden="" value="login">
+			<input type="text" hidden="" name="reg_post" value="login">
 			<div class="reg-main-con">
 				<div class="reg-mian-con-div">
 					<label  for="">
-						输入姓名：<input class="inp"  maxlength="14" type="text" name="username" placeholder="输入登录姓名">
-						<!-- <span style="color:red;vertical-align: middle">*</span> -->
-					</label> 
-					<!-- <span class="reg-main-con-cue">注册后不可更改！中英文均可，最长14个字母或7个汉字.</span> -->
-					<!-- <div class="reg-main-r-cue reg-cue-1">用户名已使用！</div> -->
+						输入姓名：<input class="inp"  maxlength="14" type="text" name="username" placeholder="输入登录姓名">						
+					</label>					
 				</div>
 				<div class="reg-mian-con-div">
 					<label for="">
 						输入密码：<input class="inp" maxlength="14" minlength="6" type="password" name="userpass" placeholder="输入登录密码">
-						<!-- <span style="color:red;vertical-align: middle">*</span> -->
-					</label>
-					<!-- <span class="reg-main-con-cue">支持数组与字母，长度6~14个字符.</span> -->
-					<!-- <div class="reg-main-r-cue reg-cue-4">请输入有效密码</div> -->
-				</div>
-				<!-- <div class="reg-mian-con-div">
-					<label for="">
-						确认密码：<input class="inp" type="password" name="userpass_r" placeholder="再次输入密码">
-						<span style="color:red;vertical-align: middle">*</span>
-					</label> 					
-					<div class="reg-main-r-cue reg-cue-2">两次密码不同！</div>
-				</div> -->
-				<!-- <div class="reg-mian-con-div">
-					<label  for="">
-						手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						机：<input class="inp" type="text" name="userphone" placeholder="输入手机号码">
-						<span style="color:red;vertical-align: middle">*</span>
 					</label>					
-					<div class="reg-main-r-cue reg-cue-3">请输入有效号码</div>
 				</div>
-				<div class="reg-mian-con-div">
-					<label for="">
-						邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						箱：<input class="inp" type="text" name="usermail" placeholder="输入有效邮箱">
-					</label>				
-				</div> -->
 				<div class="reg-mian-con-div" style="margin-left:-3px">
 					<label for="inp_v">
 						输入验证码：<input class="inp inp-v" id="inp_v" type="text" name="user_v"> 
-					</label>					 
-					<!-- <span  class="inp-v-p"></span> -->
-					<!-- <span style="color:red;vertical-align:middle;">*</span> -->
-					<div id="reg_v_p" class="inp-v-p"></div>
+					</label>
+					<div id="reg_v_p" class="inp-v-p" style="margin-left:50px">
+						<img src="" alt="verifi photo" class="inp-v-p-img">
+					</div>
+					<div class="rig-wro rig-wro-ver" style="left:225px"></div>
 					<div class="reg-main-r-cue reg-main-r-cue2">
 						<a class="reg-main-ref" href="##">点击刷新</a>
 					</div>
@@ -78,10 +52,9 @@
 				<input class="reg-button" value="登录" type="submit">
 				<input class="reg-button" type="reset">
 			</div>
+			<div class="reg-submit-cue"></div>
 		</form>
 	</div>
-
-
 </div>
 </body>
 </html>

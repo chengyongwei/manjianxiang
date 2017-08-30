@@ -33,7 +33,7 @@ body{
 	width:600px;height:auto;border-radius:7px;margin:10px auto;
 	box-shadow: 1px 1px 5px rgba(5,5,5,0.5);background: white;
 	/*background:url('../images/register-main-b.jpg')  center no-repeat;*/
-	background:rgba(250,250,250,0.2);padding:0 10px 40px;
+	background:rgba(250,250,250,0.2);padding:0 10px 10px;
 }
 /*注册框顶端*/
 .reg-main-top{
@@ -53,21 +53,28 @@ body{
 	display:inline-block ;width:100px;height:36px; margin-left:40px;
 	background: white;vertical-align:middle;position:relative;background:#aaa;
 }
+.inp-v-p-img{width:100%;height:100%;cursor:pointer;}
 /*提示*/
 .reg-main-con-cue{position:absolute;bottom:0;left:0;}
-.reg-main-r-cue{position:absolute;bottom:50%;right:-90px;width:100px;font-size: 13px;color:red;}
+.reg-main-r-cue{position:absolute;bottom:50%;right:-85px;width:100px;font-size: 13px;color:red;}
 .reg-main-r-cue2{right:-60px;color:#555;}
-.reg-cue-2,.reg-cue-3,.reg-cue-4{display:none;}
+.reg-cue-1,.reg-cue-2,.reg-cue-3,.reg-cue-4,.reg-cue-5{display:none;}
 .rig-wro{
 	position:absolute;width:27px;height:27px;background: #ccc;left:230px;top:3px;
 	background:url(../images/rig_wro.png) 0 0 no-repeat;
 	background-size:cover;
 }
 .rig-wro-r{left:auto;right:-10px;display:none;}
-.rig-wro-ver{background-position:-27px 0;}
-/*验证*/
+.rig-wro-r2{left:auto;right:-10px;display:none;}
+.reg-vname-waiting{
+	position:absolute;width:27px;height:27px;background: #ccc;right:-10px;top:3px;
+	background:url(../images/waiting.gif)  no-repeat;
+	background-size:cover;display:none;
+}
+.rig-wro-ver{background-position:-27px 0;display:none;}
+/*验证刷新*/
 .reg-main-ref{color:#06e;}
-.reg-main-ref:hover{color:#c70;}
+.reg-main-ref:hover{color:#d70;}
 /*提交按钮区*/
 .reg-main-but{margin-top:10px;}
 .reg-button{
@@ -76,3 +83,6 @@ body{
 }
 .reg-button:nth-of-type(1){margin-right:70px;}
 .reg-button:hover{background: #075dbd;}
+
+/*提交提示*/
+.reg-submit-cue{height:30px;text-align: center;line-height: 30px;font-size: 15px;color:red;visibility:hidden;}
