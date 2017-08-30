@@ -93,6 +93,12 @@ var verimg_data = [],get_verimg_data=[],current_data_i=0;
 			}				
 		}		
 	})
+
+	//重置清除提示符
+	$('input[type="reset"]').click(function()
+		{$('.rig-wro-ver').css('display','none');
+		$('.reg-submit-cue').css('visibility','hidden');
+	})
 	
 // $(window).on('resize',function(){
 
