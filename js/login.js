@@ -104,4 +104,24 @@ var verimg_data = [],get_verimg_data=[],current_data_i=0;
 // 	console.log(window.innerWidth)
 // })
 
+//移动
+$('.reg-main,.reg-main-top').on('mousedown.log_move',function(event){
+	var o_left = $('.reg-box').offset().left;
+	var o_top = $('.reg-box').offset().top;
+	var o_x = event.screenX;
+	var o_y = event.screenY;
+	$(window).on('mousemove.log_move',function(event){
+		var n_x = event.screenX;
+		var n_y = event.screenY;
+		var left = o_left+(n_x-o_x);
+		var top = o_top+(n_y-o_y);
+		$('.reg-box').css({'left':left+'px','top':top+'px'});
+
+	})
+
+	$(window).on('mouseup.log_move',function(){	$(window).off('mousemove.log_move');})
+
+})
+
+
 })//e

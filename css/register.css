@@ -18,9 +18,9 @@ img{border:0 none;}
 
 body{
 	background:url('../images/reg-back.jpg')  center no-repeat; 
-	background-size:cover;
+	background-size:100% 150%;
 }
-.bodyset{height:1000px;}
+.bodyset{height:800px;}
 @media  (max-width: 900px) {
     body {
        background-size:100% 150%;
