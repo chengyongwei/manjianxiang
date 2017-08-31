@@ -13,6 +13,7 @@ img{border:0 none;}
 
 .reg-box{position:fixed;left:30%;top:70px;}
 .reg-main{width:500px;}
+.reg-main-top{position:relative;}
 .reg-main:hover{cursor:move;}
 .reg-header{margin:0 auto;}
 .reg-main-con{width:80%;}

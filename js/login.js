@@ -123,5 +123,7 @@ $('.reg-main,.reg-main-top').on('mousedown.log_move',function(event){
 
 })
 
+//关闭窗口
+$('.reg-main-top span').click(function(){$('.reg-box').css('display','none');})
 
 })//e
