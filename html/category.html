@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>类别查询</title>
+	<link rel="shortcut icon" href="../images/02.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="dns-prefetch" href="">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<link rel="stylesheet" href="../css/category.css">
+	<script src="../data/category_data.js"></script>
+	<script src="../js/category.js"></script>
+</head>
+<body>
+	<h2 style="margin-top:20px">数据查询</h2>
+	<div id="category_box">
+		<main class="cat-main">
+			<div class="cat-left-list box-siz-set">
+				<h3>分类选择</h3>
+				<ul class="cat-left-list-ul box-siz-set">
+					<li><a href="##">内容分类１</a></li>
+					<li><a href="##">内容分类２</a></li>
+					<li><a href="##">内容分类３</a></li>
+					<li><a href="##">内容分类４</a></li>
+					<li><a href="##">内容分类５</a></li>
+					<li><a href="##">内容分类６</a></li>
+					<li><a href="##">内容分类７</a></li>					
+				</ul>
+			</div>
+			<div  class="cat-right-con box-siz-set">
+				<div class="right-search">
+					<form action="##" name="cat_right_search">
+						<div class="select-container">
+							<span style="font-size: 16px">分类搜索：</span>
+							<select class="right-search-select" name="cat_right_search_select" id="">
+								<option value="内容1">搜索内容1</option>
+								<option value="内容1">搜索内容2</option>
+								<option value="内容1">搜索内容3</option>
+							</select>
+						</div>
+						<div class="search-container">
+							<input type="text" class="box-siz-set" name="cat_right_search_text">
+							<button type="submit"></button>
+						</div>
+					</form>
+				</div>
+				<div class="right-con-itme1">
+					<div class="right-con-itme1-top">
+						<div class="right-con-itme1-topf box-siz-set"><h5>标题</h5></div>
+						<div class="right-con-itme1-topf box-siz-set"><h5>内容预览</h5></div>
+						<div class="right-con-itme1-topf box-siz-set"><h5>操作</h5></div>										
+					</div>
+					<div class="right-con-itme1-exposure">
+						<div class="itme1-exposure-row" data-ix='1'>
+							<div class="itme1-exposure-cell">标题文字</div>
+							<div class="itme1-exposure-cell">介绍文字</div>
+							<div class="itme1-exposure-cell">
+								<a href="##" class="cell_details">详情</a>
+								<a href="##" class="cell_favorites">收藏</a>
+								<a href="##" class="cell_remove">移除</a>
+							</div>							
+						</div>
+
+					</div>
+				</div>
+				<div class="exposure-indicators">
+					<div class=" noselect exposure-indicators-con indicators-prev"><<</div>
+					<div class="indicators-con-center">
+						<div class="exposure-indicators-con cur-indi">1</div>
+					</div><div onselectstart="return false" class="exposure-indicators-con indicators-next">>></div>
+				</div>
+			</div>
+
+		</main>
+		<div class="category-defails">
+			<div class="defails-close">&times;</div>
+			<div><h1>详情内容</h1></div>
+
+		</div>
+
+	</div>
+</body>
+</html>
