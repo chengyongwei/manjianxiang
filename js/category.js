@@ -1,7 +1,7 @@
 $(function(){//s
 
 //定义变量
-var temp02_data_i = 0,temp02_data = category_data01[temp02_data_i];
+var temp02_data_i = 0,temp02_data = category_data01[temp02_data_i],category_request_bo = false;
 var all_row,row_num = 5,cur_page = 1,page_num;
 
 //接收数据添加内容函数
@@ -87,5 +87,23 @@ $('.cat-left-list-ul>li').on('click.cate_list',function(){
 		$(this).find('a').css({'color':'orange'});
 	}
 });	
+
+//异步请求函数
+function category_async(urltext,reqD={},fun){
+	category_request_bo = false;
+	$.get(urltext,reqD,function(response_data){	
+		temp02_data = response_data;
+	})
+	category_request();	
+}
+
+//接收数据完成函数
+function category_request(){
+	if(temp02_data==undefined){
+		setTimeout(category_request,500);
+	}else{
+		category_request_bo = true;
+	}
+}
 
 })//e
