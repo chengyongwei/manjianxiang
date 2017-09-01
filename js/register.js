@@ -2,11 +2,14 @@ $(function(){//s
 
 var jsond = '[	{"id":"1","name":"01.jpg","data":"hrdy"},	{"id":"2","name":"02.jpg","data":"x5ph"},	{"id":"3","name":"03.jpg","data":"bwdt"},	{"id":"4","name":"04.jpg","data":"d2qk"},	{"id":"5","name":"05.jpg","data":"xx8z"},	{"id":"6","name":"06.jpg","data":"pnke"},	{"id":"7","name":"07.jpg","data":"a9up"}]';
 var datavvv = JSON.parse(jsond);
-var verimg_data = [],get_verimg_data=[],current_data_i=0;
+var verimg_data = [],get_verimg_data=[],current_data_i=0,tempName='冠缨';
 
 	//查询用户名
 	$('input[name="username"]').on('blur.regname',function(){
 		var usernamev = $(this).val().trim();
+		var regexp = new RegExp('^'+tempName+'$');
+		var bo = regexp.test(usernamev);
+		console.log(bo)	
 		if(usernamev.length>0){
 			$('.reg-vname-waiting').css('display','block');
 			// $.get('',{reg_query:'username'},function(res_data){
@@ -18,6 +21,15 @@ var verimg_data = [],get_verimg_data=[],current_data_i=0;
 			// 		$('.reg-cue-1').css('display','block');
 			// 	}
 			// })
+			setTimeout(function(){
+				if(bo){
+					$('.rig-wro-r:eq(0)').css('display','block');
+					$('.reg-cue-1,.reg-vname-waiting').css('display','none');
+				}else{
+					$('.rig-wro-r:eq(0),.reg-vname-waiting').css('display','none');
+					$('.reg-cue-1').css('display','block');
+				}				
+			},2000)
 		}else{
 			$('.reg-cue-1,.rig-wro-r:eq(0),.reg-vname-waiting').css('display','none');
 		}
