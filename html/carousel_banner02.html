@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>carousel banner 02</title>
+	<link rel="shortcut icon" href="../images/02.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="dns-prefetch" href="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+<style>
+*{margin:0;padding:0;}
+#banner_box{width:1200px;height:400px;margin:10px auto 0;overflow:hidden;box-shadow:0px 1px 10px  rgba(5,5,5,0.3);}
+.banner-con-box{
+	width:100%;height:100%;position:relative;background:url(../images/temp_banner01/loading01.gif) center no-repeat;
+	background-size:100px 100px;
+}
+.banner-con-box>li{width:100%;height:100%;position:absolute;top:0;left:0;}
+.banner-con-box> .banner-p{width:100%;height:100%;display:none;}
+.banner-con-box> .banner-p a{display:block;width:100%;height:100%;}
+.banner-con-box> .banner-p img{width:100%;height:100%;}
+.banner-p:nth-child(1){display:block;}
+.banner-indicators{position:relative;top:-20px;text-align:center;z-index: 100;margin-top:-15px;}
+.indicators-item{
+	display:inline-block;width:15px;height:15px;border-radius:50%;margin:0 10px;cursor:pointer;
+	background:#bcbcbc;border:solid 2px #aaa;
+}
+.indicators-item:first-child{background:#e4effa;}
+
+</style>
+</head>
+<body>
+
+<div id="banner_box">
+	<ul class="banner-con-box">
+		<li class="banner-p">
+			<a href="##"><img src="../images/temp_banner01/banner-img3.jpg" alt=""></a>
+		</li>
+		<li class="banner-p">
+			<a href="##"><img src="../images/temp_banner01/banner-img2.jpg" alt=""></a>
+		</li>
+		<li class="banner-p">
+			<a href="##"><img src="../images/temp_banner01/banner-img1.jpg" alt=""></a>
+		</li>
+	</ul>
+	<div class="banner-indicators" >
+		<span class="indicators-item"></span>
+		<span class="indicators-item"></span>
+		<span class="indicators-item"></span>
+	</div>
+</div>
+
+<script>
+$(function(){//s
+
+var cur_ban=0,new_ban,banner_carousel_setI01;
+
+function banner_carousel01(a){
+	var h = $('#banner_box').height();
+	if(a==undefined){
+		new_ban = cur_ban+1; new_ban = new_ban==$('.banner-p').length?0:new_ban;		
+	}
+
+	$('.indicators-item').css({'background':'#bcbcbc'});
+	$('.indicators-item:eq('+new_ban+')').css({'background':'#e4effa'});
+
+	$('.banner-p:eq('+cur_ban+')').css({'z-index':'3'});
+	$('.banner-p:eq('+new_ban+')').css({'z-index':'2','display':'block','height':'0'});
+	$('.banner-p:eq('+new_ban+')').stop(true).animate({'height':'100%'},1000,function(){
+
+	})
+	$('.banner-p:eq('+cur_ban+')').stop(true).animate({'height':'0','top':h+'px'},1000,function(){
+		$(this).css({'display':'none','z-index':'0','top':'0'}); cur_ban=new_ban;
+	})
+}
+setTimeout(function(){
+	banner_carousel01();
+	banner_carousel_setI01 = setInterval(banner_carousel01,3000);
+},1000);
+
+$('.banner-con-box,.banner-indicators').mouseover(function(){clearTimeout( banner_carousel_setI01); })
+
+$('.banner-con-box').mouseout(function(){
+	clearTimeout(banner_carousel_setI01);
+	banner_carousel_setI01 = setInterval(banner_carousel01,3000);
+})
+
+$('.indicators-item').on('click.banner_carousel',function(){
+	var ii = $(this).index();
+	if(ii!=cur_ban){ new_ban = ii; banner_carousel01(1); }
+})
+		
+
+})//e
+
+</script>	
+</body>
+</html>

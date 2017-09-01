@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>carousel banner 03</title>
+	<link rel="shortcut icon" href="../images/02.ico">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta http-equiv="x-dns-prefetch-control" content="on">
+	<link rel="dns-prefetch" href="">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<script src="../js/jquery-3.1.1.min.js"></script>
+<style>
+*{margin:0;padding:0;}
+#banner_box{width:1200px;height:400px;margin:10px auto 0;overflow:hidden;box-shadow:0px 1px 10px  rgba(5,5,5,0.3);position:relative;}
+.banner-con-box{
+	width:100%;height:100%;position:relative;background:url(../images/temp_banner01/loading01.gif) center no-repeat;
+	background-size:100px 100px;
+}
+.banner-con-box>li{width:100%;height:100%;position:absolute;top:0;left:0;}
+.banner-con-box> .banner-p{width:100%;height:100%;display:none;}
+.banner-con-box> .banner-p a{display:block;width:100%;height:100%;}
+.banner-p:nth-child(1){background:url(../images/temp_banner01/banner-img3.jpg) no-repeat;background-size:100%;display:block;}
+.banner-p:nth-child(2){background:url(../images/temp_banner01/banner-img2.jpg) no-repeat;background-size:100%;}
+.banner-p:nth-child(3){background:url(../images/temp_banner01/banner-img1.jpg) no-repeat;background-size:100%;}
+.banner-p:nth-child(4){background:url(../images/temp_banner01/banner-img4.jpg) no-repeat;background-size:100%;}
+.banner-p:nth-child(5){background:url(../images/temp_banner01/banner-img5.jpg) no-repeat;background-size:100%;}
+.banner-indicators{position:relative;top:-20px;text-align:center;z-index: 100;margin-top:-15px;}
+.indicators-item{
+	display:inline-block;width:15px;height:15px;border-radius:50%;margin:0 10px;cursor:pointer;
+	background:#666;border:solid 2px #777;
+}
+.indicators-item:first-child{background:#e4effa;}
+.banner-control{position:absolute;width:50px;height:170px;top:50%;margin-top:-85px;z-index: 10;opacity:.5;border-radius:5px;cursor:pointer;}
+.control-prev{left:20px;background:url(../images/temp_banner01/flip_prev.png) no-repeat; background-size:100%;}
+.control-next{right:20px;background:url(../images/temp_banner01/flip_next.png) no-repeat; background-size:100%;}
+
+@keyframes animation01{
+	from{transform:scale(1);}
+	to{transform:scale(1.2);}
+}
+
+</style>
+</head>
+<body>
+
+<div id="banner_box">
+	<ul class="banner-con-box">
+		<li class="banner-p"><a href="##"></a></li>
+		<li class="banner-p"><a href="##"></a></li>
+		<li class="banner-p"><a href="##"></a></li>
+		<li class="banner-p"><a href="##"></a></li>
+		<li class="banner-p"><a href="##"></a></li>
+	</ul>
+	<div class="banner-indicators" >
+		<span class="indicators-item"></span>
+		<span class="indicators-item"></span>
+		<span class="indicators-item"></span>
+		<span class="indicators-item"></span>
+		<span class="indicators-item"></span>
+	</div>
+	<div class="banner-control control-prev"></div>
+	<div class="banner-control control-next"></div>
+</div>
+
+<script>
+$(function(){//s
+
+var cur_ban=0,next_ban,prev_ban,banner_carousel_setI01;
+
+function banner_carousel01(a){
+	var w = $('#banner_box').width();
+	if(a==undefined){
+		next_ban = cur_ban+1; 
+		next_ban = next_ban==$('.banner-p').length?0:next_ban;
+		a=next_ban;		
+	}
+
+	if(a>cur_ban){
+		next_ban = a || next_ban;
+		$('.indicators-item').css({'background':'#999'});
+		$('.indicators-item:eq('+next_ban+')').css({'background':'#e4effa'});
+		$('.banner-p:eq('+next_ban+')').css({'left':w+'px','display':'block'})
+		.stop(true).animate({'left':'0'},700);
+		$('.banner-p:eq('+cur_ban+')').stop(true).animate({'left':'-'+w+'px'},700,function(){
+			$(this).css({'display':'none'}); cur_ban=next_ban;
+		})
+	}
+
+	if(a<cur_ban){
+		prev_ban=a;
+		$('.indicators-item').css({'background':'#999'});
+		$('.indicators-item:eq('+prev_ban+')').css({'background':'#e4effa'});
+		$('.banner-p:eq('+prev_ban+')').css({'left':'-'+w+'px','display':'block'})
+		.stop(true).animate({'left':'0'},700);
+		$('.banner-p:eq('+cur_ban+')').stop(true).animate({'left':w+'px'},700,function(){
+			$(this).css({'display':'none'}); cur_ban=prev_ban;
+		});		
+	}
+}		
+// banner_carousel01();
+setTimeout(function(){
+	banner_carousel01();
+	banner_carousel_setI01 = setInterval(banner_carousel01,3000);
+},1000);
+
+$('.banner-con-box,.banner-indicators').mouseover(function(){clearTimeout( banner_carousel_setI01); })
+
+$('.banner-con-box').mouseout(function(){
+	clearTimeout(banner_carousel_setI01);
+	banner_carousel_setI01 = setInterval(banner_carousel01,3000);
+})
+
+$('.indicators-item').on('click.banner_carousel',function(){
+	var ii = $(this).index();
+	if(ii!=cur_ban){ next_ban = ii; banner_carousel01(ii); }
+})
+
+
+$('.banner-control').hover(function(){
+	$(this).css({'animation':'animation01 .3s linear infinite alternate'});
+},function(){
+	$(this).css({'animation':'none'});
+})
+	
+$('.control-next').click(function(){
+	banner_carousel01();
+});
+$('.control-prev').click(function(){
+	var a = cur_ban-1; 
+		a = a<0?$('.banner-p').length-1:a;	
+	banner_carousel01(a);
+})
+
+		
+})//e
+
+</script>	
+</body>
+</html>
