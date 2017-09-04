@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>category02</title>
+	<script src="../js/jquery-3.1.1.min.js"></script>
+	<!-- <link rel="icon" href="Images/1.ico" /> -->
+    <!-- <link rel="shortcut icon" href="Images/1.ico"  /> -->
+<style>
+*{margin:0;padding:0;}
+#box01{width:1000px;margin:10px auto 0;}
+.noselect1{-webkit-user-select:none;}
+.div1{width:200px;float:left;margin-right:10px;box-shadow: 0 1px 5px rgba(6,6,6,0.3);}
+.div2{width:700px;float:left;height:500px;background: #eee;box-shadow: 0 1px 5px rgba(6,6,6,0.3);overflow: hidden;position:relative;}
+.c1{
+	width:100%;height:30px;box-sizing: border-box;border:solid 1px #ddd;line-height: 30px;padding-left:5px;cursor:pointer;
+	-webkit-user-select:none;
+}
+.c2{height:auto;border-bottom:solid 1px #eee;}
+.c2 ul{list-style: none;overflow:hidden;display:none;}
+.c2 ul li{
+	box-sizing: border-box;padding-left:20px;text-align:left;cursor:pointer;height:30px;line-height: 30px;
+	-webkit-user-select:none;
+}
+.c2 ul li:hover{background:#eee;}
+.slide{height:auto !important;transition:height 1s;}
+.c3{position:fixed;display: none;overflow:hidden;z-index: 100;padding:5px;background: #eee;}
+.c3 li{
+	width:100px;height:20px;list-style: none;cursor:pointer;margin-bottom:3px;background: #fff;
+	-webkit-user-select:none;
+}
+.c3 li:hover{background: #ccc;}
+.div2-top{height:30px;background: #ededed;text-align: right;line-height: 30px;box-sizing: border-box;padding-right:5px;position:relative;z}
+.prenex {position:absolute;top:10px;right:2px;}
+.prenex a{
+	text-decoration: none;color:#777;background: #ddd;padding:2px 5px;display:none;cursor: pointer;
+}
+.prenex a:hover{color:#fff;}
+.div2-content{height:400px;background: #fff;position:relative;}
+.div2-content-tab{height:27px;position:absolute;top:-27px;overflow: hidden;}
+.div2-content-tab-item{
+	height:27px;width:100px;float:left;background:#dedede;border:solid 1px #ddd;border-radius: 5px 5px 0 0 ;
+	border-bottom:none;cursor: pointer;line-height:27px;text-align: center;margin-right:2px;-webkit-user-select:none;
+}
+
+.div2-content-tab-item:first-child{background:#fff;}
+.div2-content-tab-con{width:100%;height:300px;box-sizing: border-box;padding:20px;}
+.dctc-add{position:absolute;top:0;left:0;display:none;width:100%;height:100px;background: #fff;}
+
+</style>
+</head>
+<body>
+<div id="box01">	
+<div class="div1">
+	<div class="c1">类别1</div>
+	<div class="c2">
+		<ul data-ci="0">
+			<li data-ci="00">类别1-1</li>
+			<li data-ci="01">类别1-2</li>
+			<li data-ci="02">类别1-3</li>
+			<li data-ci="03">类别1-4</li>
+			<li data-ci="04">类别1-5</li>
+		</ul>
+	</div>
+	<div class="c1">类别2</div>
+	<div class="c2">
+		<ul data-ci="1">
+			<li data-ci="10">类别2-1</li>
+			<li data-ci="11">类别2-2</li>
+			<li data-ci="12">类别2-3</li>			
+		</ul>
+	</div>	
+</div>
+<div class="c3">
+	<ul >
+		<li>刷新</li>
+		<li>关闭此标签</li>
+		<li>关闭所有</li>
+	</ul>
+</div>
+<div class="div2">
+	<div class="div2-top">
+			
+	</div>
+	<div class="div2-content">
+		
+		<div class="div2-content-tab">
+			<div class="div2-content-tab-item">主标签</div>
+			<!-- <div data-i="00" class="div2-content-tab-item dcti-add">类别1-1</div>			 -->
+		</div>
+		<div class="div2-content-tab-con">
+			主标签内容
+		</div>
+		<!-- <div data-i="00" class="div2-content-tab-con dctc-add">
+			类别1内容1类别1内容1类别1内容1
+		</div> -->
+	</div>
+	<div class="prenex">
+		<a  class="noselect1" href="javascript:;"><<</a>
+		<a  class="noselect1" href="javascript:;">>></a>
+	</div>
+</div>
+</div>
+	<script>
+var content_tab_con = ['内容1内容1内容1','内容2内容2内容2内容2内容2','内容3内容3内容3内容3内容3内容3'];
+//open_bar记录打开的bar,cur_bat记录当前bar，tab_count记录bar长度，pre_nex_v记录bar父元素左margi值，batc记录添加的bar个数。
+var open_bar = [],cur_bat=0,tab_count=1,pre_nex_v,batc;
+
+
+//左边默认打开
+$('.c2 ul:eq(0)').css({'display':'block'})
+
+//左项目打开效果
+$('.c1').click(function(){
+	var h = $(this).next('.c2').find('ul').outerHeight();
+	// $(this).next('.c2').find('ul').slideToggle(500)
+	var lu = $(this).next('.c2').find('ul')
+	if(lu.css('display')!='block'){
+		$('.c2 ul').not($(this)).stop(true).animate({'height':'0'},500,function(){$(this).css({'height':'auto','display':'none'});});
+		lu.css({'height':'0','display':'block'}).stop(true).animate({'height':h+'px'},500);		
+	}else{
+		lu.stop(true).animate({'height':'0'},500,function(){$(this).css({'height':'auto','display':'none'});});
+	}
+
+	
+	// console.log($(this).next('.c2').find('ul'))
+})
+
+//右键菜单
+function add_e_contextmenu(){
+	$('.div2-content-tab-item').on('contextmenu',function(e){
+		e.preventDefault();
+		var x = e.clientX;
+		var y = e.clientY;
+		$('.c3').css({'left':x+'px','top':y+'px','display':'block'});
+		return false;	
+	})	
+}
+add_e_contextmenu();
+
+$('.c3 li').mousedown(function(){$('.i1').val($(this).text())});
+$(window).mousedown(function(){$('.c3').css({'display':'none'})})
+
+//上标签按钮（代理）
+$('.div2-content').on('click',$('.div2-content-tab-item'),function(e){
+	
+	if($(e.target).hasClass('div2-content-tab-item')){
+		$('.div2-content-tab-item').css({'background':'#dedede'});
+		$(e.target).css({'background':'#fff'});		
+		var ii = $(e.target).index('.dcti-add');	
+		if($(e.target).index('.div2-content-tab-item')==0){
+			$('.dctc-add').css('display','none');
+			$('.c2 li').css('background','');
+		}else{
+			$('.dctc-add').css('display','none');	
+			$('.dctc-add:eq('+ii+')').css('display','block');
+			var dctc_attr = $('.dctc-add:eq('+ii+')').attr('data-i');
+
+			$('.c2 li').each(function(){
+				if($(this).attr('data-ci')==dctc_attr){
+					$('.c2 li').css('background','');
+					$(this).css('background','#eee');
+				}
+
+			});		
+		}
+	}
+
+})
+
+//左类别按钮
+$('.c2 li').on('click',function(){
+	var ti = $(this).attr('data-ci');
+	cur_bat = ti;
+	var compare = open_bar.some(function(item){	return item==ti;})
+	tab_count = $('.div2-content-tab').children().length;
+
+	var batw = $('.div2-content-tab-item').outerWidth(true);
+	var left_v = Math.abs(parseInt( $('.div2-content-tab').css('margin-left').split('px')[0]));
+	if($('.dcti-add[data-i="'+ti+'"]')){
+		var bat_off_le = $('.dcti-add[data-i="'+ti+'"]').index('.div2-content-tab-item')*batw
+	}
+	
+	if(!compare){
+		if(tab_count>5){
+			var batw = $('.div2-content-tab-item').outerWidth(true);
+			var left_l = (tab_count-5)*batw;
+			$('.prenex a').css('display','inline');
+			$('.div2-content-tab').stop(true).animate({'margin-left':'-'+left_l+'px'},200);
+		}else{
+			$('.prenex a').css('display','none');
+			$('.div2-content-tab').css({'margin-left':'0'});
+		}
+		open_bar.push(ti);
+		var titel = $(this).text();
+		var add_tab = '<div data-i="'+ti+'" class="div2-content-tab-item dcti-add">'+titel+'</div>';
+		$('.div2-content-tab').append(add_tab);
+		var  add_tab_con = '<div data-i="'+ti+'" class="div2-content-tab-con dctc-add">'+titel+titel+titel+'</div>';
+		$('.div2-content').append(add_tab_con);
+		 batc = parseInt($('.dcti-add').length);
+		add_e_contextmenu();	
+		$('.div2-content-tab>.dcti-add[data-i="'+ti+'"]').click();
+	}else{		
+		if(left_v>bat_off_le){
+			pre_nex_v = bat_off_le;
+			$('.div2-content-tab').stop(true).animate({'margin-left':'-'+pre_nex_v+'px'},200);
+		}else if(left_v<bat_off_le-batw*5){		
+			pre_nex_v = bat_off_le-batw*5;			
+			$('.div2-content-tab').stop(true).animate({'margin-left':'-'+pre_nex_v+'px'},200);
+		}
+			// console.log(pre_nex_v)
+		$('.div2-content-tab>.dcti-add[data-i="'+ti+'"]').click();
+	}
+
+})
+
+//左右滑动按钮
+$('.prenex a').on('click',function(){
+	var ai = $(this).index();
+	var batw = $('.div2-content-tab-item').outerWidth(true);
+	var left_v = Math.abs(parseInt( $('.div2-content-tab').css('margin-left').split('px')[0]));	
+	if(ai==0){
+		pre_nex_v = left_v-batw;
+		pre_nex_v = pre_nex_v<=0?0:pre_nex_v;		
+		$('.div2-content-tab').stop(true).animate({'margin-left':'-'+pre_nex_v+'px'},200);
+	}else if(ai==1){			
+		if(pre_nex_v<batw*(batc-5)){
+			pre_nex_v = left_v+batw;			
+			$('.div2-content-tab').stop(true).animate({'margin-left':'-'+pre_nex_v+'px'},200);
+		}
+	}	
+})
+
+//右键菜单按钮
+$('.c3 li').on('click',function(){
+	var $(this).index('.c3 li');
+})
+
+	</script>
+</body>
+</html>

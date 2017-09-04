@@ -20,10 +20,10 @@
 .banner-con-box>li{width:100%;height:100%;position:absolute;top:0;left:0;}
 .banner-con-box> .banner-p{width:100%;height:100%;display:none;}
 .banner-con-box> .banner-p a{display:block;width:100%;height:100%;}
-.banner-p:nth-child(1){background:url(../images/temp_banner01/banner-img3.jpg) no-repeat;background-size:100%;display:block;}
-.banner-p:nth-child(2){background:url(../images/temp_banner01/banner-img2.jpg) no-repeat;background-size:100%;}
-.banner-p:nth-child(3){background:url(../images/temp_banner01/banner-img1.jpg) no-repeat;background-size:100%;}
-.banner-indicators{position:relative;top:-20px;text-align:center;z-index: 100;margin-top:-15px;}
+.banner-p:nth-child(1){background:url(../images/temp_banner01/banner-img3.jpg) no-repeat;background-size:100% 100%;display:block;}
+.banner-p:nth-child(2){background:url(../images/temp_banner01/banner-img2.jpg) no-repeat;background-size:100% 100%;}
+.banner-p:nth-child(3){background:url(../images/temp_banner01/banner-img1.jpg) no-repeat;background-size:100% 100%;}
+.banner-indicators{position:relative;top:-30px;text-align:center;z-index: 100;margin-top:-15px;}
 .indicators-item{
 	display:inline-block;width:15px;height:15px;border-radius:50%;margin:0 10px;cursor:pointer;
 	background:#bcbcbc;border:solid 2px #aaa;
@@ -63,8 +63,9 @@ function banner_carousel01(a){
 	$('.banner-p:eq('+cur_ban+')').css({'z-index':'3'});
 	$('.banner-p:eq('+new_ban+')').css({'z-index':'2','display':'block'});
 	$('.banner-p:eq('+cur_ban+')').stop(true).animate({'opacity':'0'},700,function(){
-		$(this).css({'display':'none','z-index':'0','opacity':'1'}); cur_ban=new_ban;
+		$(this).css({'display':'none','z-index':'0','opacity':'1'}); 
 	})
+	cur_ban=new_ban;
 }		
 setTimeout(function(){
 	banner_carousel01();
@@ -75,7 +76,7 @@ $('.banner-con-box,.banner-indicators').mouseover(function(){clearTimeout( banne
 
 $('.banner-con-box').mouseout(function(){
 	clearTimeout(banner_carousel_setI01);
-	banner_carousel_setI01 = setInterval(banner_carousel01,200);
+	banner_carousel_setI01 = setInterval(banner_carousel01,2000);
 })
 
 $('.indicators-item').on('click.banner_carousel',function(){

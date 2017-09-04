@@ -22,7 +22,7 @@
 .banner-con-box> .banner-p a{display:block;width:100%;height:100%;}
 .banner-con-box> .banner-p img{width:100%;height:100%;}
 .banner-p:nth-child(1){display:block;}
-.banner-indicators{position:relative;top:-20px;text-align:center;z-index: 100;margin-top:-15px;}
+.banner-indicators{position:relative;top:-30px;text-align:center;z-index: 100;margin-top:-15px;}
 .indicators-item{
 	display:inline-block;width:15px;height:15px;border-radius:50%;margin:0 10px;cursor:pointer;
 	background:#bcbcbc;border:solid 2px #aaa;
@@ -67,13 +67,12 @@ function banner_carousel01(a){
 	$('.indicators-item:eq('+new_ban+')').css({'background':'#e4effa'});
 
 	$('.banner-p:eq('+cur_ban+')').css({'z-index':'3'});
-	$('.banner-p:eq('+new_ban+')').css({'z-index':'2','display':'block','height':'0'});
-	$('.banner-p:eq('+new_ban+')').stop(true).animate({'height':'100%'},1000,function(){
-
+	$('.banner-p:eq('+new_ban+')').css({'z-index':'2','display':'block','height':'0'})
+	.stop(true,true).animate({'height':'100%'},1000,function(){	})
+	$('.banner-p:eq('+cur_ban+')').stop(true,true).animate({'height':'0','top':h+'px'},1000,function(){
+		$(this).css({'display':'none','z-index':'0','top':'0'}); 
 	})
-	$('.banner-p:eq('+cur_ban+')').stop(true).animate({'height':'0','top':h+'px'},1000,function(){
-		$(this).css({'display':'none','z-index':'0','top':'0'}); cur_ban=new_ban;
-	})
+	cur_ban=new_ban;
 }
 setTimeout(function(){
 	banner_carousel01();

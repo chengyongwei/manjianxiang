@@ -79,6 +79,7 @@ $('.cat-left-list-ul>li').on('click.cate_list',function(){
 		if(category_data01[temp02_data_i]==undefined){
 			$('.right-con-itme1-exposure').text('内容为空！');
 		}else{
+			cur_page=1;
 			category_exposure(temp02_data,cur_page,row_num);			
 		}
 		$('.cat-left-list-ul>li').css({'background':'url(../images/category_btn01.png) center no-repeat','background-size':'100%'});
